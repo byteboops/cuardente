@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>História — Cu Ardente</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/png" href="/logo-removebg-preview.png">
+<link rel="apple-touch-icon" href="/logo-removebg-preview.png">
+<script>(function(){try{var t=localStorage.getItem('ca_theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Skranji:wght@400;700&display=swap');
+:root{--verde-claro:#7ed957;--verde-escuro:#1b4d1b;--vermelho:#c1121f;--bg:#fff;--bg-alt:#f2f2f2;--text:#111;--card:#fff;--border:#ccc;--shadow:0 4px 14px rgba(0,0,0,.12)}
+[data-theme="dark"]{--bg:#0d0d0d;--bg-alt:#1a1a1a;--text:#f2f2f2;--card:#1f1f1f;--border:#333;--shadow:0 4px 14px rgba(0,0,0,.6)}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Skranji',cursive;transition:background .25s,color .25s;min-height:100vh}
+h1,h2,h3,h4,.titulo{font-family:'Bowlby One',sans-serif;letter-spacing:.5px}
+a{color:var(--vermelho)}
+header.topo{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem;background:var(--verde-escuro);color:#fff;position:sticky;top:0;z-index:100}
+header.topo .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--verde-claro);font-family:'Bowlby One',sans-serif;font-size:1.4rem}
+header.topo .logo img{height:42px;width:auto;display:block}
+header.topo .hamburguer{background:transparent;border:2px solid var(--verde-claro);color:var(--verde-claro);font-family:'Bowlby One',sans-serif;padding:.4rem .7rem;border-radius:8px;cursor:pointer;font-size:1rem}
+main.container{max-width:960px;margin:0 auto;padding:2rem 1.5rem 6rem}
+.btn{display:inline-block;font-family:'Bowlby One',sans-serif;padding:.8rem 1.4rem;border-radius:10px;border:none;cursor:pointer;text-decoration:none;text-align:center;font-size:1rem;transition:transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-verde{background:var(--verde-claro);color:var(--verde-escuro)}
+.btn-vermelho{background:var(--vermelho);color:#fff}
+.btn-outline{background:transparent;color:var(--verde-claro);border:2px solid var(--verde-claro)}
+form{display:grid;gap:1rem}
+label{font-size:.95rem}
+input,select,textarea{font-family:'Skranji',cursive;width:100%;padding:.7rem;border-radius:8px;border:2px solid var(--border);background:var(--card);color:var(--text);font-size:1rem}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--verde-claro)}
+.checkbox-linha{display:flex;gap:.6rem;align-items:flex-start}
+.checkbox-linha input{width:auto}
+.card{background:var(--card);border-radius:14px;padding:1.2rem;box-shadow:var(--shadow);border:2px solid var(--border)}
+.card-ingresso{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.card-ingresso .preco{font-family:'Bowlby One',sans-serif;color:var(--vermelho);font-size:1.3rem}
+.grade{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.noticia img{width:100%;border-radius:10px;margin-bottom:.6rem}
+.noticia .data{font-size:.8rem;opacity:.7}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;z-index:200}
+.menu-overlay.aberto{display:block}
+aside.menu-hamburguer{position:fixed;top:0;right:-340px;width:320px;height:100vh;background:var(--verde-escuro);color:#fff;padding:1.5rem;transition:right .25s;z-index:201;display:flex;flex-direction:column;gap:.7rem;overflow-y:auto}
+aside.menu-hamburguer.aberto{right:0}
+aside.menu-hamburguer h3{color:var(--verde-claro);margin:0 0 .5rem;font-size:1.1rem}
+aside.menu-hamburguer .btn-menu{display:block;text-align:center;text-decoration:none;font-family:'Bowlby One',sans-serif;font-size:1rem;padding:.9rem 1rem;border-radius:10px;background:var(--verde-claro);color:var(--verde-escuro);border:2px solid var(--verde-claro);transition:transform .1s,background .2s,color .2s}
+aside.menu-hamburguer .btn-menu:hover{background:transparent;color:var(--verde-claro)}
+aside.menu-hamburguer .btn-menu:active{transform:scale(.97)}
+aside.menu-hamburguer .btn-menu.btn-menu-sair{background:var(--vermelho);border-color:var(--vermelho);color:#fff}
+aside.menu-hamburguer .btn-menu.btn-menu-sair:hover{background:transparent;color:var(--vermelho)}
+aside.menu-hamburguer .fechar{align-self:flex-end;background:transparent;border:none;color:#fff;font-size:1.5rem;cursor:pointer;margin-bottom:.5rem}
+footer.rodape{background:var(--verde-escuro);color:#fff;padding:2rem 1.5rem 1rem;margin-top:3rem}
+footer.rodape form.newsletter{display:flex;gap:.5rem;flex-wrap:wrap;max-width:480px}
+footer.rodape input{flex:1 1 200px;background:#0b2a0b;color:#fff;border-color:var(--verde-claro)}
+footer.rodape .copy{text-align:center;opacity:.7;margin-top:1.5rem;font-size:.8rem}
+.config-grupo{margin-bottom:2rem}
+.config-grupo h2{border-bottom:3px solid var(--verde-claro);padding-bottom:.4rem}
+.config-item{display:flex;justify-content:space-between;align-items:center;padding:.8rem 0;border-bottom:1px dashed var(--border)}
+.config-item a{font-weight:bold}
+.hero{text-align:center;padding:3rem 1rem;background:linear-gradient(135deg,var(--verde-claro),var(--verde-escuro));color:#fff;border-radius:18px;margin-bottom:2rem}
+.hero h1{font-size:2.2rem;margin-bottom:1rem}
+.hero p{font-family:'Skranji',cursive;font-size:1.1rem;margin-bottom:1.5rem}
+.hero .acoes{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.modal-fundo{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:300}
+.modal-fundo.aberto{display:flex}
+.modal-caixa{background:var(--card);color:var(--text);padding:1.8rem;border-radius:14px;max-width:420px;width:90%;box-shadow:var(--shadow)}
+.modal-caixa .acoes{display:flex;gap:.7rem;margin-top:1.2rem}
+.pagamento-tabs{display:flex;gap:.5rem;margin:1rem 0}
+.pagamento-tabs button{flex:1;padding:.6rem;border-radius:8px;border:2px solid var(--border);background:transparent;color:var(--text);cursor:pointer;font-family:'Skranji',cursive}
+.pagamento-tabs button.ativo{border-color:var(--verde-claro);background:var(--verde-claro);color:var(--verde-escuro)}
+.painel-pagamento{display:none}
+.painel-pagamento.ativo{display:block}
+.gritar-wrap{text-align:center;padding:1rem}
+#grito-status{font-size:1.4rem;font-family:'Bowlby One',sans-serif;color:var(--vermelho);margin:1rem 0}
+#grito-barra{height:20px;background:var(--bg-alt);border-radius:10px;overflow:hidden}
+#grito-barra>div{height:100%;width:0%;background:var(--verde-claro);transition:width .1s linear}
+.etapas{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.etapas .etapa{flex:1 1 100px;text-align:center;padding:.7rem;border-radius:8px;background:var(--bg-alt);font-family:'Bowlby One',sans-serif;font-size:.85rem}
+.etapas .etapa.ativa{background:var(--verde-claro);color:var(--verde-escuro)}
+</style>
+</head>
+<body>
+<header class="topo">
+  <a href="/" class="logo">
+    <img src="/logo-removebg-preview.png" alt="Logo Cu Ardente">
+    <span>Cu Ardente</span>
+  </a>
+  <button class="hamburguer">☰</button>
+</header>
+
+<main class="container">
+  <h1>História</h1>
+  <div class="card">
+    <p>Era uma vez 2 moleques que jogavam futebol de mesa com apontador. Agora tem site, simples assim. Você acabou de perder seu tempo com 3 frases.</p>
+  </div>
+</main>
+
+<script>
+window.CA = {
+  URL:'https://mjqwiqjojkzobuysziyv.supabase.co',
+  KEY:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1qcXdpcWpvamt6b2J1eXN6aXl2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA3Nzc4MzMsImV4cCI6MjEwNjM1MzgzM30.w4zDJdmAOmZBnvfXHZ3YDu2qfiUs_gSOnccY0S2ahG8',
+  async enviarTxt(tipo, dados){
+    var linhas = Object.keys(dados).map(function(k){return k+': '+dados[k];});
+    var txt = '--- Registro Cu Ardente ---\ntipo: '+tipo+'\nenviado_em: '+new Date().toISOString()+'\n'+linhas.join('\n')+'\n';
+    var nome = tipo+'-'+Date.now()+'-'+Math.random().toString(36).slice(2,8)+'.txt';
+    try{
+      var r = await fetch(this.URL+'/storage/v1/object/releases/'+nome,{
+        method:'POST',
+        headers:{'Authorization':'Bearer '+this.KEY,'apikey':this.KEY,'Content-Type':'text/plain','x-upsert':'true'},
+        body:new Blob([txt],{type:'text/plain'})
+      });
+      if(!r.ok){console.error('Supabase:',await r.text());return false;}
+      return true;
+    }catch(e){console.error(e);return false;}
+  }
+};
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var ov = document.createElement('div'); ov.className='menu-overlay'; ov.id='menu-overlay';
+  document.body.appendChild(ov);
+  var m = document.createElement('aside'); m.className='menu-hamburguer'; m.id='menu-hamburguer';
+  m.innerHTML =
+    '<button class="fechar" id="fechar-menu">✕</button>'+
+    '<h3>Menu</h3>'+
+    '<a href="/noticias" class="btn-menu">Notícias</a>'+
+    '<a href="/ingressos" class="btn-menu">Ingressos</a>'+
+    '<a href="/login" class="btn-menu">Login</a>'+
+    '<a href="/historia" class="btn-menu">História</a>'+
+    '<a href="/juridico" class="btn-menu">Jurídico</a>'+
+    '<a href="/ajustes" class="btn-menu">Configurações</a>';
+  document.body.appendChild(m);
+  ov.addEventListener('click', fechar);
+  m.querySelector('#fechar-menu').addEventListener('click', fechar);
+  document.querySelectorAll('header.topo .hamburguer').forEach(function(b){
+    b.addEventListener('click', function(){ov.classList.add('aberto'); m.classList.add('aberto');});
+  });
+  function fechar(){ov.classList.remove('aberto'); m.classList.remove('aberto');}
+
+  var f = document.createElement('footer'); f.className='rodape';
+  f.innerHTML =
+    '<h3 class="titulo" style="color:var(--verde-claro);margin-top:0">Newsletter do Cu Ardente</h3>'+
+    '<form class="newsletter"><input type="email" name="email" placeholder="Seu e-mail" required>'+
+    '<button type="submit" class="btn btn-verde">Assinar</button></form>'+
+    '<p class="copy">© Cu Ardente — Time de futebol de apontador. Sem validade jurídica alguma.</p>';
+  document.body.appendChild(f);
+  f.querySelector('form').addEventListener('submit', async function(e){
+    e.preventDefault();
+    await CA.enviarTxt('newsletter', {email:this.email.value});
+    alert('Inscrito! 🐔'); this.reset();
+  });
+});
+</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){});}</script>
+</body>
+</html>
