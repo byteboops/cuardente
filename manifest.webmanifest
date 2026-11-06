@@ -1,0 +1,32 @@
+{
+  "name": "Cu Ardente",
+  "short_name": "Cu Ardente",
+  "description": "O site do Cu Ardente, o time mais ardente do futebol de apontador.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1b4d1b",
+  "theme_color": "#1b4d1b",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/logo-removebg-preview.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-removebg-preview.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-removebg-preview.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
